@@ -84,7 +84,7 @@ func GetPositions(aggregatedLots map[string]AggregatedLot) func([]Quote) map[str
 					Cost := aggregatedLots[quote.Symbol].Cost
 					CurrentValue := (quote.Price * aggregatedLots[quote.Symbol].Quantity)
 					Change := (quote.Price * aggregatedLots[quote.Symbol].Quantity) - Cost
-					ChangePercent := (CurrentValue / Cost) * 100
+					ChangePercent := (Change / Cost) * 100
 					return append(acc, Position{
 						AggregatedLot:    aggregatedLots[quote.Symbol],
 						Value:            CurrentValue,
