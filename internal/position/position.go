@@ -84,8 +84,8 @@ func GetPositions(aggregatedLots map[string]AggregatedLot) func([]Quote) map[str
 					return append(acc, Position{
 						AggregatedLot:    aggregatedLots[quote.Symbol],
 						Value:            quote.Price * aggregatedLots[quote.Symbol].Quantity,
-						DayChange:        dayChange,
-						DayChangePercent: (dayChange / valuePreviousClose) * 100,
+						DayChange:        aggregatedLots[quote.Symbol].Cost - (quote.Price * aggregatedLots[quote.Symbol].Quantity),
+						DayChangePercent: (aggregatedLots[quote.Symbol].Cost / (quote.Price * aggregatedLots[quote.Symbol].Quantity)) * 100,
 					})
 				}
 				return acc
