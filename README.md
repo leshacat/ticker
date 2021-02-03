@@ -20,23 +20,15 @@ Terminal stock watcher and stock position tracker
 * Support for multiple cost basis lots
 * Support for pre and post market price quotes
 
+## Changelog for this version
+* Show total position change / % over entire trade (not just the day)
+
 ## Install
 
-Download the pre-compiled binaries from the [releases page](https://github.com/achannarasappa/ticker/releases) and copy to a location in `PATH` or see quick installs below
-
-**mac**
 ```
-brew install achannarasappa/tap/ticker
-```
-
-**linux**
-```sh
-curl -Ls https://api.github.com/repos/achannarasappa/ticker/releases/latest \
-| grep -wo "https.*linux-amd64*.tar.gz" \
-| wget -qi - \
-&& tar -xf ticker*.tar.gz \
-&& chmod +x ./ticker \
-&& sudo mv ticker /usr/local/bin/
+sudo apt -y install golang
+export GOBIN=/usr/local/bin/
+go install
 ```
 
 ## Quick Start
