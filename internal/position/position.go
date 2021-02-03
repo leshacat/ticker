@@ -79,8 +79,8 @@ func GetPositions(aggregatedLots map[string]AggregatedLot) func([]Quote) map[str
 			From(quotes).
 			Reduce(func(acc []Position, quote Quote) []Position {
 				if _, ok := aggregatedLots[quote.Symbol]; ok {
-					dayChange := quote.Change * aggregatedLots[quote.Symbol].Quantity
-					valuePreviousClose := quote.RegularMarketPreviousClose * aggregatedLots[quote.Symbol].Quantity
+					//dayChange := quote.Change * aggregatedLots[quote.Symbol].Quantity
+					//valuePreviousClose := quote.RegularMarketPreviousClose * aggregatedLots[quote.Symbol].Quantity
 					return append(acc, Position{
 						AggregatedLot:    aggregatedLots[quote.Symbol],
 						Value:            quote.Price * aggregatedLots[quote.Symbol].Quantity,
