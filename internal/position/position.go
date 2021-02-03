@@ -81,7 +81,7 @@ func GetPositions(aggregatedLots map[string]AggregatedLot) func([]Quote) map[str
 				if _, ok := aggregatedLots[quote.Symbol]; ok {
 					//dayChange := quote.Change * aggregatedLots[quote.Symbol].Quantity
 					//valuePreviousClose := quote.RegularMarketPreviousClose * aggregatedLots[quote.Symbol].Quantity
-					Cost := aggregatedLots[quote.Symbol].Cost
+					Cost := aggregatedLots[quote.Symbol].Cost * aggregatedLots[quote.Symbol].Quantity
 					CurrentValue := (quote.Price * aggregatedLots[quote.Symbol].Quantity)
 					Change := (quote.Price * aggregatedLots[quote.Symbol].Quantity) - Cost
 					ChangePercent := (Change / Cost) * 100
