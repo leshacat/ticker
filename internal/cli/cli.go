@@ -53,7 +53,7 @@ func Validate(config *Config, fs afero.Fs, options Options, prevErr error) func(
 		}
 
 		if len(*options.Watchlist) != 0 {
-			config.Watchlist = strings.Split(strings.ReplaceAll(*options.Watchlist, " ", ""), ",")
+			config.Watchlist = strings.Split(strings.Replace(*options.Watchlist, " ", "", -1), ",")
 		}
 
 		*config = mergeConfig(*config, options)
